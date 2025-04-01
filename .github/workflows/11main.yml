@@ -3,7 +3,7 @@ name: Daily Scholar Scraper
 on:
   schedule:
     - cron: '0 0 * * *'  # 매일 오전 9시 KST (UTC 자정)
-  workflow_dispatch:
+  workflow_dispatch:      # 수동 실행용, 들여쓰기와 문법 정확히!
 
 jobs:
   run-scraper:
@@ -31,4 +31,5 @@ jobs:
           git add .
           git commit -m "자동 업데이트 논문 데이터" || echo "No changes to commit"
           git push https://${{ secrets.GH_TOKEN }}@github.com/<유저명>/<레포지토리명>.git main
+
 
